@@ -12,6 +12,12 @@
 		98C1CAE82D71B1C800C3492C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CAE12D71B1C800C3492C /* ContentView.swift */; };
 		98C1CAE92D71B1C800C3492C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CAE32D71B1C800C3492C /* Preview Assets.xcassets */; };
 		98C1CAEA2D71B1C800C3492C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C1CAE52D71B1C800C3492C /* Assets.xcassets */; };
+		98C1CAFC2D71C62500C3492C /* StoryPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CAFB2D71C62500C3492C /* StoryPreset.swift */; };
+		98C1CAFD2D71C62500C3492C /* StoryPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CAFB2D71C62500C3492C /* StoryPreset.swift */; };
+		98C1CAFF2D71C68300C3492C /* StoryStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CAFE2D71C68300C3492C /* StoryStyle.swift */; };
+		98C1CB002D71C68300C3492C /* StoryStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CAFE2D71C68300C3492C /* StoryStyle.swift */; };
+		98C1CB022D71CE6700C3492C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CB012D71CE6700C3492C /* HomeScreen.swift */; };
+		98C1CB032D71CE6700C3492C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CB012D71CE6700C3492C /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,9 @@
 		98C1CAE22D71B1C800C3492C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		98C1CAE32D71B1C800C3492C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98C1CAE52D71B1C800C3492C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98C1CAFB2D71C62500C3492C /* StoryPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreset.swift; sourceTree = "<group>"; };
+		98C1CAFE2D71C68300C3492C /* StoryStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryStyle.swift; sourceTree = "<group>"; };
+		98C1CB012D71CE6700C3492C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -88,6 +97,7 @@
 				98C1CADF2D71B1AC00C3492C /* storyteller */,
 				98C1CA262D71951000C3492C /* storytellerTests */,
 				98C1CA302D71951100C3492C /* storytellerUITests */,
+				98CEA6CF2D7311840012F1E9 /* Frameworks */,
 				98C1CA102D71950F00C3492C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +131,7 @@
 		98C1CAED2D71B20D00C3492C /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				98C1CB012D71CE6700C3492C /* HomeScreen.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -152,8 +163,17 @@
 		98C1CAF82D71C58300C3492C /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				98C1CAFB2D71C62500C3492C /* StoryPreset.swift */,
+				98C1CAFE2D71C68300C3492C /* StoryStyle.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		98CEA6CF2D7311840012F1E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +277,7 @@
 			mainGroup = 98C1CA062D71950F00C3492C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				98C1CAF62D71BBBC00C3492C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				98CEA6D52D7315230012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 98C1CA102D71950F00C3492C /* Products */;
@@ -302,8 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C1CAFC2D71C62500C3492C /* StoryPreset.swift in Sources */,
 				98C1CAE72D71B1C800C3492C /* Item.swift in Sources */,
+				98C1CB022D71CE6700C3492C /* HomeScreen.swift in Sources */,
 				98C1CAE82D71B1C800C3492C /* ContentView.swift in Sources */,
+				98C1CB002D71C68300C3492C /* StoryStyle.swift in Sources */,
 				98C1CABC2D71B0D900C3492C /* StorytellerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C1CB032D71CE6700C3492C /* HomeScreen.swift in Sources */,
+				98C1CAFF2D71C68300C3492C /* StoryStyle.swift in Sources */,
+				98C1CAFD2D71C62500C3492C /* StoryPreset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +388,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -404,7 +430,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -668,12 +694,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		98C1CAF62D71BBBC00C3492C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		98CEA6D52D7315230012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.17.1;
+				minimumVersion = 1.15.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
