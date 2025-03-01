@@ -18,6 +18,8 @@
 		98C1CB002D71C68300C3492C /* StoryStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CAFE2D71C68300C3492C /* StoryStyle.swift */; };
 		98C1CB022D71CE6700C3492C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CB012D71CE6700C3492C /* HomeScreen.swift */; };
 		98C1CB032D71CE6700C3492C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CB012D71CE6700C3492C /* HomeScreen.swift */; };
+		98CEA6D72D731FD80012F1E9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6D62D731FD80012F1E9 /* Config.swift */; };
+		98CEA6DA2D7320570012F1E9 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6D92D7320570012F1E9 /* OpenAIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		98C1CAFB2D71C62500C3492C /* StoryPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreset.swift; sourceTree = "<group>"; };
 		98C1CAFE2D71C68300C3492C /* StoryStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryStyle.swift; sourceTree = "<group>"; };
 		98C1CB012D71CE6700C3492C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		98CEA6D62D731FD80012F1E9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		98CEA6D92D7320570012F1E9 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -116,9 +120,11 @@
 			isa = PBXGroup;
 			children = (
 				98C1CAB92D71B0D900C3492C /* StorytellerApp.swift */,
+				98CEA6D62D731FD80012F1E9 /* Config.swift */,
 				98C1CAE12D71B1C800C3492C /* ContentView.swift */,
 				98C1CAE22D71B1C800C3492C /* Item.swift */,
 				98C1CAF72D71C57900C3492C /* Core */,
+				98CEA6D82D7320350012F1E9 /* Service */,
 				98C1CAED2D71B20D00C3492C /* Feature */,
 				98C1CAEE2D71B22900C3492C /* Resource */,
 				98C1CAEF2D71B25800C3492C /* Preview Content */,
@@ -174,6 +180,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98CEA6D82D7320350012F1E9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				98CEA6D92D7320570012F1E9 /* OpenAIService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +339,8 @@
 				98C1CAFC2D71C62500C3492C /* StoryPreset.swift in Sources */,
 				98C1CAE72D71B1C800C3492C /* Item.swift in Sources */,
 				98C1CB022D71CE6700C3492C /* HomeScreen.swift in Sources */,
+				98CEA6DA2D7320570012F1E9 /* OpenAIService.swift in Sources */,
+				98CEA6D72D731FD80012F1E9 /* Config.swift in Sources */,
 				98C1CAE82D71B1C800C3492C /* ContentView.swift in Sources */,
 				98C1CB002D71C68300C3492C /* StoryStyle.swift in Sources */,
 				98C1CABC2D71B0D900C3492C /* StorytellerApp.swift in Sources */,

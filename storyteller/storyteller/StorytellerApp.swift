@@ -25,7 +25,7 @@ struct storytellerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreen()
         }
         .modelContainer(sharedModelContainer)
     }

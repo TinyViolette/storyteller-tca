@@ -12,6 +12,9 @@ struct HomeScreen: View {
     
     @State private var selectedPreset: StoryPreset?
     @State private var selectedStyle: StoryStyle?
+    @State private var generatedStory: String = "請選擇故事與風格後點擊「Submit」"
+    
+    let apiService = OpenAIService()
     
     var body: some View {
         VStack {
@@ -55,8 +58,12 @@ struct HomeScreen: View {
             // Button to submit and trigger API
             Button {
                 if let preset = selectedPreset, let style = selectedStyle {
-                    // Trigger API
-                    print("Preset: \(preset.displayName), Style: \(style.displayName)")
+                    let prompt = "\(style.displayName) 風格的 \(preset.displayName) 故事"
+                    apiService.fetchStory(prompt: prompt) { response in
+                        DispatchQueue.main.async {
+                            self.generatedStory = response ?? "❌ 無法取得故事，請稍後再試"
+                        }
+                    }
                 }
             } label: {
                 Text("Submit")
@@ -66,6 +73,11 @@ struct HomeScreen: View {
                     .background(Color.green)
                     .cornerRadius(10)
             }
+            
+            // 顯示 API 回應
+            Text(generatedStory)
+                .font(.title3)
+                .padding()
         }
     }
     
