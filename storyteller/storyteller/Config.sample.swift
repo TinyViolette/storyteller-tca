@@ -8,5 +8,5 @@
 import Foundation
 
 enum Config {
-    static let openAIKey = "sk-xxxxxxxxxxxxxxxxxxxx"
+    static let openAIKey = "sk-proj-xxxxxxxxxxxxxxxx"
 }

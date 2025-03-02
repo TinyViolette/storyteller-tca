@@ -13,71 +13,79 @@ struct HomeScreen: View {
     @State private var selectedPreset: StoryPreset?
     @State private var selectedStyle: StoryStyle?
     @State private var generatedStory: String = "請選擇故事與風格後點擊「Submit」"
+    @State private var tokenUsage: Int = 0
     
     let apiService = OpenAIService()
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Story Presets")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding()
-                Spacer()
-            }
-            ScrollView(.horizontal) {
+        ScrollView {
+            VStack {
                 HStack {
-                    ForEach(StoryPreset.allCases, id: \.self) { preset in
-                        StoryPresetCell(preset: preset)
-                            .padding()
-                            .onTapGesture {
-                                selectedPreset = preset
-                            }
-                    }
+                    Text("Story Presets")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding()
+                    Spacer()
                 }
-            }
-            HStack {
-                Text("Story Styles")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding()
-                Spacer()
-            }
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(StoryStyle.allCases, id: \.self) { style in
-                        StoryStyleCell(style: style)
-                            .padding()
-                            .onTapGesture {
-                                selectedStyle = style
-                            }
-                    }
-                }
-            }
-            
-            // Button to submit and trigger API
-            Button {
-                if let preset = selectedPreset, let style = selectedStyle {
-                    let prompt = "\(style.displayName) 風格的 \(preset.displayName) 故事"
-                    apiService.fetchStory(prompt: prompt) { response in
-                        DispatchQueue.main.async {
-                            self.generatedStory = response ?? "❌ 無法取得故事，請稍後再試"
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(StoryPreset.allCases, id: \.self) { preset in
+                            StoryPresetCell(preset: preset)
+                                .padding()
+                                .onTapGesture {
+                                    selectedPreset = preset
+                                }
                         }
                     }
                 }
-            } label: {
-                Text("Submit")
-                    .font(.title)
-                    .fontWeight(.bold)
+                HStack {
+                    Text("Story Styles")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding()
+                    Spacer()
+                }
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(StoryStyle.allCases, id: \.self) { style in
+                            StoryStyleCell(style: style)
+                                .padding()
+                                .onTapGesture {
+                                    selectedStyle = style
+                                }
+                        }
+                    }
+                }
+                
+                // Button to submit and trigger API
+                Button {
+                    if let preset = selectedPreset, let style = selectedStyle {
+                        let prompt = "請幫我用\(style.displayName)風格講述\(preset.displayName)這個故事"
+                        apiService.fetchStory(prompt: prompt) { response, tokens in
+                            DispatchQueue.main.async {
+                                self.generatedStory = response ?? "❌ 無法取得故事，請稍後再試"
+                                self.tokenUsage = tokens ?? 0
+                            }
+                        }
+                    }
+                } label: {
+                    Text("Submit")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(10)
+                }
+                
+                Text("Token 使用量：\(tokenUsage)")
+                    .font(.caption)
                     .padding()
-                    .background(Color.green)
-                    .cornerRadius(10)
+                    .foregroundColor(.gray)
+                
+                Text(generatedStory)
+                    .font(.title3)
+                    .padding()
             }
-            
-            // 顯示 API 回應
-            Text(generatedStory)
-                .font(.title3)
-                .padding()
         }
     }
     
