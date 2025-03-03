@@ -10,12 +10,12 @@ import SwiftUI
 
 struct HomeScreen: View {
     
-    @State private var selectedPreset: StoryPreset?
-    @State private var selectedStyle: StoryStyle?
-    @State private var generatedStory: String = "請選擇故事與風格後點擊「Submit」"
-    @State private var tokenUsage: Int = 0
-    
-    let apiService = OpenAIService()
+    let store: Store<StorytellerReducer.State, StorytellerReducer.Action> = Store(
+        initialState: StorytellerReducer.State(),
+        reducer: {
+            StorytellerReducer()
+        }
+    )
     
     var body: some View {
         ScrollView {
@@ -33,7 +33,7 @@ struct HomeScreen: View {
                             StoryPresetCell(preset: preset)
                                 .padding()
                                 .onTapGesture {
-                                    selectedPreset = preset
+                                    store.send(.selectPreset(preset))
                                 }
                         }
                     }
@@ -51,7 +51,7 @@ struct HomeScreen: View {
                             StoryStyleCell(style: style)
                                 .padding()
                                 .onTapGesture {
-                                    selectedStyle = style
+                                    store.send(.selectStyle(style))
                                 }
                         }
                     }
@@ -59,15 +59,7 @@ struct HomeScreen: View {
                 
                 // Button to submit and trigger API
                 Button {
-                    if let preset = selectedPreset, let style = selectedStyle {
-                        let prompt = "請幫我用\(style.displayName)風格講述\(preset.displayName)這個故事"
-                        apiService.fetchStory(prompt: prompt) { response, tokens in
-                            DispatchQueue.main.async {
-                                self.generatedStory = response ?? "❌ 無法取得故事，請稍後再試"
-                                self.tokenUsage = tokens ?? 0
-                            }
-                        }
-                    }
+                    store.send(.generateStory)
                 } label: {
                     Text("Submit")
                         .font(.title)
@@ -77,12 +69,12 @@ struct HomeScreen: View {
                         .cornerRadius(10)
                 }
                 
-                Text("Token 使用量：\(tokenUsage)")
+                Text("Token 使用量：\(store.tokenUsage)")
                     .font(.caption)
                     .padding()
                     .foregroundColor(.gray)
                 
-                Text(generatedStory)
+                Text(store.generatedStory)
                     .font(.title3)
                     .padding()
             }
@@ -97,7 +89,7 @@ struct HomeScreen: View {
                 .fontWeight(.bold)
                 .padding()
         }
-        .background(Color.red.opacity(selectedPreset == preset ? 1 : 0.5))
+        .background(Color.red.opacity(store.selectedPreset == preset ? 1 : 0.5))
         .cornerRadius(10)
     }
     
@@ -109,7 +101,7 @@ struct HomeScreen: View {
                 .fontWeight(.bold)
                 .padding()
         }
-        .background(Color.blue.opacity(selectedStyle == style ? 1 : 0.5))
+        .background(Color.blue.opacity(store.selectedStyle == style ? 1 : 0.5))
         .cornerRadius(10)
     }
 }

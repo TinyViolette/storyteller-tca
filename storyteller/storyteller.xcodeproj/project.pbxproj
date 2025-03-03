@@ -19,7 +19,12 @@
 		98C1CB022D71CE6700C3492C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CB012D71CE6700C3492C /* HomeScreen.swift */; };
 		98C1CB032D71CE6700C3492C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C1CB012D71CE6700C3492C /* HomeScreen.swift */; };
 		98CEA6D72D731FD80012F1E9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6D62D731FD80012F1E9 /* Config.swift */; };
-		98CEA6DA2D7320570012F1E9 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6D92D7320570012F1E9 /* OpenAIService.swift */; };
+		98CEA6DA2D7320570012F1E9 /* StorytellingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6D92D7320570012F1E9 /* StorytellingService.swift */; };
+		98CEA6DE2D7430AE0012F1E9 /* StorytellerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6DD2D7430AE0012F1E9 /* StorytellerReducer.swift */; };
+		98CEA6DF2D7430AE0012F1E9 /* StorytellerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6DD2D7430AE0012F1E9 /* StorytellerReducer.swift */; };
+		98CEA6E12D7434160012F1E9 /* LoadingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6E02D7434160012F1E9 /* LoadingPhase.swift */; };
+		98CEA6E22D7434160012F1E9 /* LoadingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEA6E02D7434160012F1E9 /* LoadingPhase.swift */; };
+		98CEA6E72D74456C0012F1E9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 98CEA6E62D74456C0012F1E9 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +59,9 @@
 		98C1CAFE2D71C68300C3492C /* StoryStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryStyle.swift; sourceTree = "<group>"; };
 		98C1CB012D71CE6700C3492C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		98CEA6D62D731FD80012F1E9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		98CEA6D92D7320570012F1E9 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		98CEA6D92D7320570012F1E9 /* StorytellingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellingService.swift; sourceTree = "<group>"; };
+		98CEA6DD2D7430AE0012F1E9 /* StorytellerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerReducer.swift; sourceTree = "<group>"; };
+		98CEA6E02D7434160012F1E9 /* LoadingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPhase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CEA6E72D74456C0012F1E9 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				98C1CB012D71CE6700C3492C /* HomeScreen.swift */,
+				98CEA6DD2D7430AE0012F1E9 /* StorytellerReducer.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 			children = (
 				98C1CAFB2D71C62500C3492C /* StoryPreset.swift */,
 				98C1CAFE2D71C68300C3492C /* StoryStyle.swift */,
+				98CEA6E02D7434160012F1E9 /* LoadingPhase.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -185,7 +195,7 @@
 		98CEA6D82D7320350012F1E9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				98CEA6D92D7320570012F1E9 /* OpenAIService.swift */,
+				98CEA6D92D7320570012F1E9 /* StorytellingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -207,6 +217,7 @@
 			);
 			name = storyteller;
 			packageProductDependencies = (
+				98CEA6E62D74456C0012F1E9 /* ComposableArchitecture */,
 			);
 			productName = storyteller;
 			productReference = 98C1CA0F2D71950F00C3492C /* storyteller.app */;
@@ -291,7 +302,7 @@
 			mainGroup = 98C1CA062D71950F00C3492C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				98CEA6D52D7315230012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				98CEA6E52D7443FC0012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 98C1CA102D71950F00C3492C /* Products */;
@@ -336,10 +347,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CEA6E22D7434160012F1E9 /* LoadingPhase.swift in Sources */,
 				98C1CAFC2D71C62500C3492C /* StoryPreset.swift in Sources */,
+				98CEA6DF2D7430AE0012F1E9 /* StorytellerReducer.swift in Sources */,
 				98C1CAE72D71B1C800C3492C /* Item.swift in Sources */,
 				98C1CB022D71CE6700C3492C /* HomeScreen.swift in Sources */,
-				98CEA6DA2D7320570012F1E9 /* OpenAIService.swift in Sources */,
+				98CEA6DA2D7320570012F1E9 /* StorytellingService.swift in Sources */,
 				98CEA6D72D731FD80012F1E9 /* Config.swift in Sources */,
 				98C1CAE82D71B1C800C3492C /* ContentView.swift in Sources */,
 				98C1CB002D71C68300C3492C /* StoryStyle.swift in Sources */,
@@ -352,6 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				98C1CB032D71CE6700C3492C /* HomeScreen.swift in Sources */,
+				98CEA6E12D7434160012F1E9 /* LoadingPhase.swift in Sources */,
+				98CEA6DE2D7430AE0012F1E9 /* StorytellerReducer.swift in Sources */,
 				98C1CAFF2D71C68300C3492C /* StoryStyle.swift in Sources */,
 				98C1CAFD2D71C62500C3492C /* StoryPreset.swift in Sources */,
 			);
@@ -710,15 +725,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		98CEA6D52D7315230012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		98CEA6E52D7443FC0012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.15.2;
+				kind = exactVersion;
+				version = 1.15.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98CEA6E62D74456C0012F1E9 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98CEA6E52D7443FC0012F1E9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98C1CA072D71950F00C3492C /* Project object */;
 }
